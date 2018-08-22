@@ -27,5 +27,9 @@
   },
   "files": [
     "dist/"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sajadtorkamani/redux-form-async-validator.git"
+  }
 }
