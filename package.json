@@ -1,13 +1,20 @@
 {
   "name": "redux-form-async-validator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easy asynchronous validation of multiple redux-form fields",
   "main": "dist/index.js",
   "author": "Sajad Torkamani <sajadtorkamani1@gmail.com>",
   "license": "MIT",
   "keywords": [
-    "react", "reactjs", "redux", "react-redux", "redux-form", "form", "form-validation",
-    "validation", "asynchronous-validation"
+    "react",
+    "reactjs",
+    "redux",
+    "react-redux",
+    "redux-form",
+    "form",
+    "form-validation",
+    "validation",
+    "asynchronous-validation"
   ],
   "devDependencies": {
     "babel-cli": "^6.26.0",
