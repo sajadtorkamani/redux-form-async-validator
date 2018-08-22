@@ -4,7 +4,7 @@
  * @param validators {object}
  * @returns {function}
  */
-export function composeAsyncValidators(validators) {
+export function composeAsyncValidator(validators) {
   /**
    * Async validator function.
    *

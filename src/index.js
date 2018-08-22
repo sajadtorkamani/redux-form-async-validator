@@ -1,3 +1,3 @@
-import { composeAsyncValidators } from './compose-async-validators';
+import { composeAsyncValidator } from './compose-async-validator';
 
-export { composeAsyncValidators };
+export { composeAsyncValidator };

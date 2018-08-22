@@ -1,6 +1,6 @@
-import { composeAsyncValidators } from '../src/compose-async-validators';
+import { composeAsyncValidator } from '../src/compose-async-validator';
 
-describe('composeAsyncValidators', () => {
+describe('composeAsyncValidator', () => {
   const valuesMock = {};
   const dispatchMock = function () {
   };
@@ -8,11 +8,11 @@ describe('composeAsyncValidators', () => {
   const validatorsMock = {};
 
   test('is a function', () => {
-    expect(composeAsyncValidators).toBeFunction();
+    expect(composeAsyncValidator).toBeFunction();
   });
 
   test('returns a function when invoked', () => {
-    expect(composeAsyncValidators()).toBeFunction();
+    expect(composeAsyncValidator()).toBeFunction();
   })
 
   test('invokes the validator function corresponding to the blurred field', () => {
@@ -24,7 +24,7 @@ describe('composeAsyncValidators', () => {
       email: [jest.fn(), 'Email is invalid!!!']
     };
 
-    composeAsyncValidators(validators)(valuesMock, dispatchMock, propsMock, 'username');
+    composeAsyncValidator(validators)(valuesMock, dispatchMock, propsMock, 'username');
 
     expect(usernameValidator).toHaveBeenCalledWith(valuesMock.username);
   });
@@ -35,7 +35,7 @@ describe('composeAsyncValidators', () => {
       email: [jest.fn(), 'Email is not available']
     };
 
-    await expect(composeAsyncValidators(validators)(valuesMock, dispatchMock, propsMock, 'username'))
+    await expect(composeAsyncValidator(validators)(valuesMock, dispatchMock, propsMock, 'username'))
       .rejects.toEqual({ username: 'Username is not available' });
   });
 
@@ -52,7 +52,7 @@ describe('composeAsyncValidators', () => {
       email: [jest.fn(), 'email is not available']
     };
 
-    await expect(composeAsyncValidators(validators)(valuesMock, dispatchMock, propsMock, 'username'))
+    await expect(composeAsyncValidator(validators)(valuesMock, dispatchMock, propsMock, 'username'))
       .rejects.toEqual({ email: 'Email is not available' });
   });
 
@@ -65,7 +65,7 @@ describe('composeAsyncValidators', () => {
       password: [jest.fn(), 'foo']
     };
 
-    await expect(composeAsyncValidators(validators)(valuesMock, dispatchMock, propsMock, 'username'))
+    await expect(composeAsyncValidator(validators)(valuesMock, dispatchMock, propsMock, 'username'))
       .resolves.toBe(undefined);
   });
 
@@ -81,12 +81,12 @@ describe('composeAsyncValidators', () => {
       password: [jest.fn(), 'foo']
     };
 
-    await expect(composeAsyncValidators(validators)(valuesMock, dispatchMock, propsMock, 'username'))
+    await expect(composeAsyncValidator(validators)(valuesMock, dispatchMock, propsMock, 'username'))
       .resolves.toBe(undefined);
   });
 
   test('returns resolved promise with value of undefined if blurredField param is undefined', async () => {
-    await expect(composeAsyncValidators(validatorsMock)(valuesMock, dispatchMock, propsMock, undefined))
+    await expect(composeAsyncValidator(validatorsMock)(valuesMock, dispatchMock, propsMock, undefined))
       .resolves.toBe(undefined);
   });
 });
