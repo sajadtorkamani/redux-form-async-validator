@@ -1,8 +1,8 @@
 {
-  "name": "redux-form-async-validators",
+  "name": "redux-form-async-validator",
   "version": "1.0.0",
   "description": "Easy asynchronous validation of multiple redux-form fields",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "Sajad Torkamani <sajadtorkamani1@gmail.com>",
   "license": "MIT",
   "keywords": [
@@ -12,13 +12,10 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "eslint": "^5.4.0",
     "jest": "^23.5.0",
-    "jest-extended": "^0.8.1",
-    "webpack": "^4.17.0",
-    "webpack-cli": "^3.1.0"
+    "jest-extended": "^0.8.1"
   },
   "scripts": {
     "test": "jest --notify --detectOpenHandles",
@@ -26,7 +23,7 @@
     "build": "babel src -d dist",
     "npm:pack-remove": "rm -rf redux-form-*.tgz package/",
     "npm:pack-generate": "npm pack && tar -xvzf redux-form-*.tgz",
-    "npm:pack": "npm pack && tar -xvzf redux-form-*.tgz"
+    "npm:pack": "npm run npm:pack-remove && npm run npm:pack-generate"
   },
   "files": [
     "dist/"
